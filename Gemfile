@@ -11,8 +11,9 @@ gem "jbuilder"
 gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
 
-# ← ここが重要：pg はトップレベルに
-gem "pg", "~> 1.5"
+group :production do     # ← 本番だけ PostgreSQL を使う
+  gem "pg", "~> 1.5"
+end
 
 group :development, :test do
   gem "mysql2", "~> 0.5"
